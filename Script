@@ -1,1 +1,79 @@
 
+-- Create a new model
+local model = Instance.new("Model")
+
+-- Create a head
+local head = Instance.new("Part")
+head.Name = "Head"
+head.BrickColor = BrickColor.White
+head.Size = Vector3.new(1, 1, 1)
+head.Position = Vector3.new(0, 0, 0)
+head.Parent = model
+
+-- Create a torso
+local torso = Instance.new("Part")
+torso.Name = "Torso"
+torso.BrickColor = BrickColor.White
+torso.Size = Vector3.new(1, 2, 1)
+torso.Position = Vector3.new(0, 0.5, 0)
+torso.Parent = model
+
+-- Create arms
+local leftArm = Instance.new("Arm")
+leftArm.Name = "LeftArm"
+leftArm.BrickColor = BrickColor.White
+leftArm.Size = Vector3.new(0.5, 1, 0.25)
+leftArm.Position = Vector3.new(-0.5, 1, 0)
+leftArm.Parent = model
+
+local rightArm = Instance.new("Arm")
+rightArm.Name = "RightArm"
+rightArm.BrickColor = BrickColor.White
+rightArm.Size = Vector3.new(0.5, 1, 0.25)
+rightArm.Position = Vector3.new(0.5, 1, 0)
+rightArm.Parent = model
+
+-- Create legs
+local leftLeg = Instance.new("Leg")
+leftLeg.Name = "LeftLeg"
+leftLeg.BrickColor = BrickColor.White
+leftLeg.Size = Vector3.new(0.5, 2, 0.25)
+leftLeg.Position = Vector3.new(-0.5, -0.5, 0)
+leftLeg.Parent = model
+
+local rightLeg = Instance.new("Leg")
+rightLeg.Name = "RightLeg"
+rightLeg.BrickColor = BrickColor.White
+rightLeg.Size = Vector3.new(0.5, 2, 0.25)
+rightLeg.Position = Vector3.new(0.5, -0.5, 0)
+rightLeg.Parent = model
+
+-- Create a skirt
+local skirt = Instance.new("Part")
+skirt.Name = "Skirt"
+skirt.BrickColor = BrickColor.Red
+skirt.Size = Vector3.new(1.5, 0.5, 1)
+skirt.Position = Vector3.new(0, -0.25, 0)
+skirt.Parent = model
+
+-- Add a humanoid to the model
+local humanoid = Instance.new("Humanoid")
+humanoid.Parent = model
+
+-- Add a script to the model to animate the character
+local script = Instance.new("LocalScript")
+script.Parent = model
+
+script.Source = [[
+humanoid:LoadAnimation(Instance.new("Animation")) -- Replace "Animation" with the ID of the animation you want to play
+]]
+
+-- Add a mesh to the head to give it a face
+local mesh = Instance.new("Mesh")
+mesh.Parent = head
+
+mesh.MeshId = 123456789 -- Replace 123456789 with the ID of the mesh you want to use
+
+**This is just a basic example, and you will need to add more code to customize the model and make it behave the way you want.**
+
+I hope this helps! Let me know if you have any other questions.
