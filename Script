@@ -1,79 +1,324 @@
+---- Minecraft Crash Report ----
+// You should try our sister game, Minceraft!
 
--- Create a new model
-local model = Instance.new("Model")
+Time: 2024-08-05 13:01:23
+Description: Bootstrap
 
--- Create a head
-local head = Instance.new("Part")
-head.Name = "Head"
-head.BrickColor = BrickColor.White
-head.Size = Vector3.new(1, 1, 1)
-head.Position = Vector3.new(0, 0, 0)
-head.Parent = model
+java.lang.ExceptionInInitializerError
+	at net.minecraft.class_6089.method_9530(class_6089.java:65)
+	at net.minecraft.class_4970$class_4971.method_26172(class_4970.java:1118)
+	at net.minecraft.class_4970$class_4971.method_26218(class_4970.java:1114)
+	at net.minecraft.class_4970.method_9549(class_4970.java:405)
+	at net.minecraft.class_4970$class_4971$class_3752.<init>(class_4970.java:1391)
+	at net.minecraft.class_4970$class_4971.method_26200(class_4970.java:929)
+	at net.minecraft.class_2246.<clinit>(class_2246.java:1253)
+	at net.minecraft.class_2358.method_10199(class_2358.java:336)
+	at net.minecraft.class_2966.method_12851(class_2966.java:54)
+	at net.minecraft.client.main.Main.main(Main.java:170)
+	at net.fabricmc.loader.impl.game.minecraft.MinecraftGameProvider.launch(MinecraftGameProvider.java:470)
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:74)
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23)
+Caused by: java.lang.RuntimeException: Mixin transformation of net.minecraft.class_1688 failed
+	at net.fabricmc.loader.impl.launch.knot.KnotClassDelegate.getPostMixinClassByteArray(KnotClassDelegate.java:427)
+	at net.fabricmc.loader.impl.launch.knot.KnotClassDelegate.tryLoadClass(KnotClassDelegate.java:323)
+	at net.fabricmc.loader.impl.launch.knot.KnotClassDelegate.loadClass(KnotClassDelegate.java:218)
+	at net.fabricmc.loader.impl.launch.knot.KnotClassLoader.loadClass(KnotClassLoader.java:119)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525)
+	at net.minecraft.class_1802.<clinit>(class_1802.java:830)
+	... 13 more
+Caused by: org.spongepowered.asm.mixin.transformer.throwables.MixinTransformerError: An unexpected critical error was encountered
+	at org.spongepowered.asm.mixin.transformer.MixinProcessor.applyMixins(MixinProcessor.java:392)
+	at org.spongepowered.asm.mixin.transformer.MixinTransformer.transformClass(MixinTransformer.java:234)
+	at org.spongepowered.asm.mixin.transformer.MixinTransformer.transformClassBytes(MixinTransformer.java:202)
+	at net.fabricmc.loader.impl.launch.knot.KnotClassDelegate.getPostMixinClassByteArray(KnotClassDelegate.java:422)
+	... 18 more
+Caused by: org.spongepowered.asm.mixin.transformer.throwables.MixinPreProcessorException: Attach error for goldenhopper.common.mixins.json:AbstractMinecartMixin from mod goldenhopper during activity: [Transform -> Method goldenHopper$CreateMinecart(Lnet/minecraft/class_3218;DDDLnet/minecraft/class_1688$class_1689;Lnet/minecraft/class_1799;Lnet/minecraft/class_1657;Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V -> INVOKEVIRTUAL -> com/mrcrayfish/framework/api/registry/RegistryEntry::get:()Ljava/lang/Object;]
+	at org.spongepowered.asm.mixin.transformer.MixinPreProcessorStandard.attach(MixinPreProcessorStandard.java:313)
+	at org.spongepowered.asm.mixin.transformer.MixinPreProcessorStandard.createContextFor(MixinPreProcessorStandard.java:277)
+	at org.spongepowered.asm.mixin.transformer.MixinInfo.createContextFor(MixinInfo.java:1289)
+	at org.spongepowered.asm.mixin.transformer.MixinApplicatorStandard.apply(MixinApplicatorStandard.java:294)
+	at org.spongepowered.asm.mixin.transformer.TargetClassContext.apply(TargetClassContext.java:422)
+	at org.spongepowered.asm.mixin.transformer.TargetClassContext.applyMixins(TargetClassContext.java:403)
+	at org.spongepowered.asm.mixin.transformer.MixinProcessor.applyMixins(MixinProcessor.java:363)
+	... 21 more
+Caused by: java.lang.RuntimeException: java.lang.ClassNotFoundException: com.mrcrayfish.framework.api.registry.RegistryEntry
+	at org.spongepowered.asm.mixin.transformer.MixinPreProcessorStandard.transformMemberReference(MixinPreProcessorStandard.java:786)
+	at org.spongepowered.asm.mixin.transformer.MixinPreProcessorStandard.transformMethod(MixinPreProcessorStandard.java:772)
+	at org.spongepowered.asm.mixin.transformer.MixinPreProcessorStandard.transform(MixinPreProcessorStandard.java:738)
+	at org.spongepowered.asm.mixin.transformer.MixinPreProcessorStandard.attach(MixinPreProcessorStandard.java:307)
+	... 27 more
+Caused by: java.lang.ClassNotFoundException: com.mrcrayfish.framework.api.registry.RegistryEntry
+	... 31 more
 
--- Create a torso
-local torso = Instance.new("Part")
-torso.Name = "Torso"
-torso.BrickColor = BrickColor.White
-torso.Size = Vector3.new(1, 2, 1)
-torso.Position = Vector3.new(0, 0.5, 0)
-torso.Parent = model
 
--- Create arms
-local leftArm = Instance.new("Arm")
-leftArm.Name = "LeftArm"
-leftArm.BrickColor = BrickColor.White
-leftArm.Size = Vector3.new(0.5, 1, 0.25)
-leftArm.Position = Vector3.new(-0.5, 1, 0)
-leftArm.Parent = model
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
 
-local rightArm = Instance.new("Arm")
-rightArm.Name = "RightArm"
-rightArm.BrickColor = BrickColor.White
-rightArm.Size = Vector3.new(0.5, 1, 0.25)
-rightArm.Position = Vector3.new(0.5, 1, 0)
-rightArm.Parent = model
+-- Head --
+Thread: main
+Stacktrace:
+	at net.minecraft.class_6089.method_9530(class_6089.java:65)
+	at net.minecraft.class_4970$class_4971.method_26172(class_4970.java:1118)
+	at net.minecraft.class_4970$class_4971.method_26218(class_4970.java:1114)
+	at net.minecraft.class_4970.method_9549(class_4970.java:405)
+	at net.minecraft.class_4970$class_4971$class_3752.<init>(class_4970.java:1391)
+	at net.minecraft.class_4970$class_4971.method_26200(class_4970.java:929)
+	at net.minecraft.class_2246.<clinit>(class_2246.java:1253)
+	at net.minecraft.class_2358.method_10199(class_2358.java:336)
+	at net.minecraft.class_2966.method_12851(class_2966.java:54)
 
--- Create legs
-local leftLeg = Instance.new("Leg")
-leftLeg.Name = "LeftLeg"
-leftLeg.BrickColor = BrickColor.White
-leftLeg.Size = Vector3.new(0.5, 2, 0.25)
-leftLeg.Position = Vector3.new(-0.5, -0.5, 0)
-leftLeg.Parent = model
+-- Initialization --
+Details:
+	Modules: 
+		ADVAPI32.dll:Advanced Windows 32 Base API:10.0.19041.1 (WinBuild.160101.0800):Microsoft Corporation
+		COMCTL32.dll:User Experience Controls Library:6.10 (WinBuild.160101.0800):Microsoft Corporation
+		CRYPTBASE.dll:Base cryptographic API DLL:10.0.19041.3636 (WinBuild.160101.0800):Microsoft Corporation
+		CRYPTSP.dll:Cryptographic Service Provider API:10.0.19041.3636 (WinBuild.160101.0800):Microsoft Corporation
+		DBGHELP.DLL:Windows Image Helper:10.0.19041.3636 (WinBuild.160101.0800):Microsoft Corporation
+		DNSAPI.dll:DNS Client API DLL:10.0.19041.1 (WinBuild.160101.0800):Microsoft Corporation
+		GDI32.dll:GDI Client DLL:10.0.19041.4474 (WinBuild.160101.0800):Microsoft Corporation
+		IMM32.DLL:Multi-User Windows IMM32 API Client DLL:10.0.19041.4474 (WinBuild.160101.0800):Microsoft Corporation
+		IPHLPAPI.DLL:IP Helper API:10.0.19041.1 (WinBuild.160101.0800):Microsoft Corporation
+		KERNEL32.DLL:Windows NT BASE API Client DLL:10.0.19041.3636 (WinBuild.160101.0800):Microsoft Corporation
+		KERNELBASE.dll:Windows NT BASE API Client DLL:10.0.19041.3636 (WinBuild.160101.0800):Microsoft Corporation
+		MpOav.dll:IOfficeAntiVirus Module:4.18.24060.7 (47d4bdd9064bc68e82ed85dd3a432e84e907a9be):Microsoft Corporation
+		NLAapi.dll:Network Location Awareness 2:10.0.19041.4123 (WinBuild.160101.0800):Microsoft Corporation
+		NSI.dll:NSI User-mode interface DLL:10.0.19041.3636 (WinBuild.160101.0800):Microsoft Corporation
+		OLEAUT32.dll:OLEAUT32.DLL:10.0.19041.3636 (WinBuild.160101.0800):Microsoft Corporation
+		Ole32.dll:Microsoft OLE for Windows:10.0.19041.3636 (WinBuild.160101.0800):Microsoft Corporation
+		POWRPROF.dll:Power Profile Helper DLL:10.0.19041.1 (WinBuild.160101.0800):Microsoft Corporation
+		PSAPI.DLL:Process Status Helper:10.0.19041.3636 (WinBuild.160101.0800):Microsoft Corporation
+		Pdh.dll:Windows Performance Data Helper DLL:10.0.19041.1 (WinBuild.160101.0800):Microsoft Corporation
+		RPCRT4.dll:Remote Procedure Call Runtime:10.0.19041.3636 (WinBuild.160101.0800):Microsoft Corporation
+		SHCORE.dll:SHCORE:10.0.19041.1 (WinBuild.160101.0800):Microsoft Corporation
+		SHELL32.dll:Windows Shell Common Dll:10.0.19041.4123 (WinBuild.160101.0800):Microsoft Corporation
+		UMPDC.dll
+		USER32.dll:Multi-User Windows USER API Client DLL:10.0.19041.1 (WinBuild.160101.0800):Microsoft Corporation
+		USERENV.dll:Userenv:10.0.19041.1 (WinBuild.160101.0800):Microsoft Corporation
+		VCRUNTIME140.dll:Microsoft® C Runtime Library:14.29.30139.0 built by: vcwrkspc:Microsoft Corporation
+		VERSION.dll:Version Checking and File Installation Libraries:10.0.19041.3636 (WinBuild.160101.0800):Microsoft Corporation
+		WINHTTP.dll:Windows HTTP Services:10.0.19041.3636 (WinBuild.160101.0800):Microsoft Corporation
+		WINMM.dll:MCI API DLL:10.0.19041.1 (WinBuild.160101.0800):Microsoft Corporation
+		WS2_32.dll:Windows Socket 2.0 32-Bit DLL:10.0.19041.3636 (WinBuild.160101.0800):Microsoft Corporation
+		WSOCK32.dll:Windows Socket 32-Bit DLL:10.0.19041.1 (WinBuild.160101.0800):Microsoft Corporation
+		Wldp.dll:Windows Lockdown Policy:10.0.19041.1 (WinBuild.160101.0800):Microsoft Corporation
+		amsi.dll:Anti-Malware Scan Interface:10.0.19041.4355 (WinBuild.160101.0800):Microsoft Corporation
+		bcrypt.dll:Windows Cryptographic Primitives Library:10.0.19041.1 (WinBuild.160101.0800):Microsoft Corporation
+		bcryptPrimitives.dll:Windows Cryptographic Primitives Library:10.0.19041.3636 (WinBuild.160101.0800):Microsoft Corporation
+		clbcatq.dll:COM+ Configuration Catalog:2001.12.10941.16384 (WinBuild.160101.0800):Microsoft Corporation
+		combase.dll:Microsoft COM for Windows:10.0.19041.3636 (WinBuild.160101.0800):Microsoft Corporation
+		dbgcore.DLL:Windows Core Debugging Helpers:10.0.19041.4355 (WinBuild.160101.0800):Microsoft Corporation
+		dhcpcsvc.DLL:DHCP Client Service:10.0.19041.1 (WinBuild.160101.0800):Microsoft Corporation
+		dhcpcsvc6.DLL:DHCPv6 Client:10.0.19041.1 (WinBuild.160101.0800):Microsoft Corporation
+		fwpuclnt.dll:FWP/IPsec User-Mode API:10.0.19041.3636 (WinBuild.160101.0800):Microsoft Corporation
+		gdi32full.dll:GDI Client DLL:10.0.19041.4474 (WinBuild.160101.0800):Microsoft Corporation
+		java.dll:OpenJDK Platform binary:17.0.8.0:Microsoft
+		javaw.exe:OpenJDK Platform binary:17.0.8.0:Microsoft
+		jimage.dll:OpenJDK Platform binary:17.0.8.0:Microsoft
+		jli.dll:OpenJDK Platform binary:17.0.8.0:Microsoft
+		jna5376336874680998251.dll:JNA native library:6.1.6:Java(TM) Native Access (JNA)
+		jsvml.dll:OpenJDK Platform binary:17.0.8.0:Microsoft
+		jvm.dll:OpenJDK 64-Bit server VM:17.0.8.0:Microsoft
+		kernel.appcore.dll:AppModel API Host:10.0.19041.3758 (WinBuild.160101.0800):Microsoft Corporation
+		management.dll:OpenJDK Platform binary:17.0.8.0:Microsoft
+		management_ext.dll:OpenJDK Platform binary:17.0.8.0:Microsoft
+		msvcp140.dll:Microsoft® C Runtime Library:14.29.30139.0 built by: vcwrkspc:Microsoft Corporation
+		msvcp_win.dll:Microsoft® C Runtime Library:10.0.19041.3636 (WinBuild.160101.0800):Microsoft Corporation
+		msvcrt.dll:Windows NT CRT DLL:7.0.19041.3636 (WinBuild.160101.0800):Microsoft Corporation
+		mswsock.dll:Microsoft Windows Sockets 2.0 Service Provider:10.0.19041.1 (WinBuild.160101.0800):Microsoft Corporation
+		napinsp.dll:E-mail Naming Shim Provider:10.0.19041.1 (WinBuild.160101.0800):Microsoft Corporation
+		net.dll:OpenJDK Platform binary:17.0.8.0:Microsoft
+		nio.dll:OpenJDK Platform binary:17.0.8.0:Microsoft
+		ntdll.dll:NT Layer DLL:10.0.19041.3636 (WinBuild.160101.0800):Microsoft Corporation
+		perfos.dll:Windows System Performance Objects DLL:10.0.19041.1 (WinBuild.160101.0800):Microsoft Corporation
+		pnrpnsp.dll:PNRP Name Space Provider:10.0.19041.1 (WinBuild.160101.0800):Microsoft Corporation
+		profapi.dll:User Profile Basic API:10.0.19041.4355 (WinBuild.160101.0800):Microsoft Corporation
+		rasadhlp.dll:Remote Access AutoDial Helper:10.0.19041.3636 (WinBuild.160101.0800):Microsoft Corporation
+		rsaenh.dll:Microsoft Enhanced Cryptographic Provider:10.0.19041.1 (WinBuild.160101.0800):Microsoft Corporation
+		sechost.dll:Host for SCM/SDDL/LSA Lookup APIs:10.0.19041.1 (WinBuild.160101.0800):Microsoft Corporation
+		shlwapi.dll:Shell Light-weight Utility Library:10.0.19041.1 (WinBuild.160101.0800):Microsoft Corporation
+		ucrtbase.dll:Microsoft® C Runtime Library:10.0.19041.3636 (WinBuild.160101.0800):Microsoft Corporation
+		vcruntime140_1.dll:Microsoft® C Runtime Library:14.29.30139.0 built by: vcwrkspc:Microsoft Corporation
+		verify.dll:OpenJDK Platform binary:17.0.8.0:Microsoft
+		win32u.dll:Win32u:10.0.19041.4648 (WinBuild.160101.0800):Microsoft Corporation
+		windows.storage.dll:Microsoft WinRT Storage API:10.0.19041.1 (WinBuild.160101.0800):Microsoft Corporation
+		winrnr.dll:LDAP RnR Provider DLL:10.0.19041.3636 (WinBuild.160101.0800):Microsoft Corporation
+		wshbth.dll:Windows Sockets Helper DLL:10.0.19041.3636 (WinBuild.160101.0800):Microsoft Corporation
+		zip.dll:OpenJDK Platform binary:17.0.8.0:Microsoft
+Stacktrace:
+	at net.minecraft.client.main.Main.main(Main.java:170)
+	at net.fabricmc.loader.impl.game.minecraft.MinecraftGameProvider.launch(MinecraftGameProvider.java:470)
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:74)
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23)
 
-local rightLeg = Instance.new("Leg")
-rightLeg.Name = "RightLeg"
-rightLeg.BrickColor = BrickColor.White
-rightLeg.Size = Vector3.new(0.5, 2, 0.25)
-rightLeg.Position = Vector3.new(0.5, -0.5, 0)
-rightLeg.Parent = model
-
--- Create a skirt
-local skirt = Instance.new("Part")
-skirt.Name = "Skirt"
-skirt.BrickColor = BrickColor.Red
-skirt.Size = Vector3.new(1.5, 0.5, 1)
-skirt.Position = Vector3.new(0, -0.25, 0)
-skirt.Parent = model
-
--- Add a humanoid to the model
-local humanoid = Instance.new("Humanoid")
-humanoid.Parent = model
-
--- Add a script to the model to animate the character
-local script = Instance.new("LocalScript")
-script.Parent = model
-
-script.Source = [[
-humanoid:LoadAnimation(Instance.new("Animation")) -- Replace "Animation" with the ID of the animation you want to play
-]]
-
--- Add a mesh to the head to give it a face
-local mesh = Instance.new("Mesh")
-mesh.Parent = head
-
-mesh.MeshId = 123456789 -- Replace 123456789 with the ID of the mesh you want to use
-
-**This is just a basic example, and you will need to add more code to customize the model and make it behave the way you want.**
-
-I hope this helps! Let me know if you have any other questions.
+-- System Details --
+Details:
+	Minecraft Version: 1.20.4
+	Minecraft Version ID: 1.20.4
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 17.0.8, Microsoft
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode), Microsoft
+	Memory: 211533592 bytes (201 MiB) / 503316480 bytes (480 MiB) up to 3154116608 bytes (3008 MiB)
+	CPUs: 8
+	Processor Vendor: GenuineIntel
+	Processor Name: 11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz
+	Identifier: Intel64 Family 6 Model 140 Stepping 1
+	Microarchitecture: Tiger Lake
+	Frequency (GHz): 2.42
+	Number of physical packages: 1
+	Number of physical CPUs: 4
+	Number of logical CPUs: 8
+	Graphics card #0 name: Intel(R) Iris(R) Xe Graphics
+	Graphics card #0 vendor: Intel Corporation (0x8086)
+	Graphics card #0 VRAM (MB): 1024.00
+	Graphics card #0 deviceId: 0x9a49
+	Graphics card #0 versionInfo: DriverVersion=27.20.100.9268
+	Memory slot #0 capacity (MB): 8192.00
+	Memory slot #0 clockSpeed (GHz): 3.20
+	Memory slot #0 type: DDR4
+	Virtual memory max (MB): 10574.34
+	Virtual memory used (MB): 6425.98
+	Swap memory total (MB): 2688.00
+	Swap memory used (MB): 225.81
+	JVM Flags: 9 total; -XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump -Xss1M -Xmx3000M -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:G1NewSizePercent=20 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=32M
+	Fabric Mods: 
+		accelerateddecay: Accelerated Decay 84.0.0
+		architectury: Architectury 11.1.17
+		baritone: Baritone 1.10.2
+			dev_babbaj_nether-pathfinder: nether-pathfinder 1.4.1
+		cloth-config: Cloth Config v13 13.0.121
+			cloth-basic-math: cloth-basic-math 0.6.1
+		commonnetworking: Common Network 1.0.11-beta.1-1.20.4
+		condensed_creative: Condensed Creative 3.2.1+1.20.4
+		craftabletotemofundying: Craftable Totem Of Undying 1.20.4-1.6.6
+		disenchanter: Disenchanter 0.1.9+1.20.3
+		durabilitytooltip: Durability Tooltip 1.1.5
+		dynamic_fps: Dynamic FPS 3.6.3
+			net_lostluma_battery: battery 1.1.0
+		elytraslot: Elytra Slot 7.0.0+1.20.4
+			mixinsquared: MixinSquared 0.1.2-beta.6
+		elytratime: Elytra Time 2.0.0
+		excavator: Excavator 2.1.0-Fabric
+		extended_drawers: Extended Drawers 2.1.1+mc.1.20.4
+			config_toolkit: ConfigToolkit 1.0.0
+				io_determann_shadow-api-17: shadow-api-17 0.1.1
+				net_fabricmc_javapoet: javapoet 0.1.0
+			graphlib: Graph Lib 1.4.0+1.20.4
+				kmodlib-overlay: KModLib Overlay 0.2.13+1.20.3
+				libnetworkstack: Lib Network Stack 0.11.0-pre.1
+			noindium: No Indium? 1.1.0+1.20.4
+			yet_another_config_lib_v3: YetAnotherConfigLib 3.3.1+1.20.4
+				com_twelvemonkeys_common_common-image: common-image 3.10.0
+				com_twelvemonkeys_common_common-io: common-io 3.10.0
+				com_twelvemonkeys_common_common-lang: common-lang 3.10.0
+				com_twelvemonkeys_imageio_imageio-core: imageio-core 3.10.0
+				com_twelvemonkeys_imageio_imageio-metadata: imageio-metadata 3.10.0
+				com_twelvemonkeys_imageio_imageio-webp: imageio-webp 3.10.0
+				org_quiltmc_parsers_gson: gson 0.2.1
+				org_quiltmc_parsers_json: json 0.2.1
+		extrasponges: ExtraSponges 1.5.1
+		fabric-api: Fabric API 0.97.1+1.20.4
+			fabric-api-base: Fabric API Base 0.4.37+78d798af4f
+			fabric-api-lookup-api-v1: Fabric API Lookup API (v1) 1.6.50+82b1bb3e4f
+			fabric-biome-api-v1: Fabric Biome API (v1) 13.0.17+78d798af4f
+			fabric-block-api-v1: Fabric Block API (v1) 1.0.17+3e2216cb4f
+			fabric-block-view-api-v2: Fabric BlockView API (v2) 1.0.5+78d798af4f
+			fabric-blockrenderlayer-v1: Fabric BlockRenderLayer Registration (v1) 1.1.47+78d798af4f
+			fabric-client-tags-api-v1: Fabric Client Tags 1.1.8+78d798af4f
+			fabric-command-api-v1: Fabric Command API (v1) 1.2.42+f71b366f4f
+			fabric-command-api-v2: Fabric Command API (v2) 2.2.21+78d798af4f
+			fabric-commands-v0: Fabric Commands (v0) 0.2.59+df3654b34f
+			fabric-containers-v0: Fabric Containers (v0) 0.1.87+df3654b34f
+			fabric-content-registries-v0: Fabric Content Registries (v0) 5.0.16+78d798af4f
+			fabric-convention-tags-v1: Fabric Convention Tags 1.5.11+78d798af4f
+			fabric-crash-report-info-v1: Fabric Crash Report Info (v1) 0.2.24+78d798af4f
+			fabric-data-attachment-api-v1: Fabric Data Attachment API (v1) 1.1.5+b90db5744f
+			fabric-data-generation-api-v1: Fabric Data Generation API (v1) 13.2.5+5c0133444f
+			fabric-dimensions-v1: Fabric Dimensions API (v1) 2.1.63+6605d1a84f
+			fabric-entity-events-v1: Fabric Entity Events (v1) 1.6.2+09fc25014f
+			fabric-events-interaction-v0: Fabric Events Interaction (v0) 0.7.2+389931eb4f
+			fabric-events-lifecycle-v0: Fabric Events Lifecycle (v0) 0.2.75+df3654b34f
+			fabric-game-rule-api-v1: Fabric Game Rule API (v1) 1.0.47+78d798af4f
+			fabric-item-api-v1: Fabric Item API (v1) 2.3.0+bcdd12964f
+			fabric-item-group-api-v1: Fabric Item Group API (v1) 4.0.27+ee30b13a4f
+			fabric-key-binding-api-v1: Fabric Key Binding API (v1) 1.0.42+78d798af4f
+			fabric-keybindings-v0: Fabric Key Bindings (v0) 0.2.40+df3654b34f
+			fabric-lifecycle-events-v1: Fabric Lifecycle Events (v1) 2.3.1+a67ffb5d4f
+			fabric-loot-api-v2: Fabric Loot API (v2) 2.1.10+78d798af4f
+			fabric-message-api-v1: Fabric Message API (v1) 6.0.6+78d798af4f
+			fabric-mining-level-api-v1: Fabric Mining Level API (v1) 2.1.66+78d798af4f
+			fabric-model-loading-api-v1: Fabric Model Loading API (v1) 1.0.9+78d798af4f
+			fabric-models-v0: Fabric Models (v0) 0.4.8+9386d8a74f
+			fabric-networking-api-v1: Fabric Networking API (v1) 3.1.8+2e5ac5484f
+			fabric-object-builder-api-v1: Fabric Object Builder API (v1) 13.1.0+dba1195c4f
+			fabric-particles-v1: Fabric Particles (v1) 1.1.8+78d798af4f
+			fabric-recipe-api-v1: Fabric Recipe API (v1) 2.0.21+78d798af4f
+			fabric-registry-sync-v0: Fabric Registry Sync (v0) 4.0.20+ee30b13a4f
+			fabric-renderer-api-v1: Fabric Renderer API (v1) 3.2.5+78d798af4f
+			fabric-renderer-indigo: Fabric Renderer - Indigo 1.5.6+d331d3144f
+			fabric-renderer-registries-v1: Fabric Renderer Registries (v1) 3.2.54+df3654b34f
+			fabric-rendering-data-attachment-v1: Fabric Rendering Data Attachment (v1) 0.3.43+73761d2e4f
+			fabric-rendering-fluids-v1: Fabric Rendering Fluids (v1) 3.1.2+e761c6694f
+			fabric-rendering-v0: Fabric Rendering (v0) 1.1.57+df3654b34f
+			fabric-rendering-v1: Fabric Rendering (v1) 3.2.1+6fd945a04f
+			fabric-resource-conditions-api-v1: Fabric Resource Conditions API (v1) 2.3.15+78d798af4f
+			fabric-resource-loader-v0: Fabric Resource Loader (v0) 0.11.21+ee30b13a4f
+			fabric-screen-api-v1: Fabric Screen API (v1) 2.0.18+78d798af4f
+			fabric-screen-handler-api-v1: Fabric Screen Handler API (v1) 1.3.56+78d798af4f
+			fabric-sound-api-v1: Fabric Sound API (v1) 1.0.18+78d798af4f
+			fabric-transfer-api-v1: Fabric Transfer API (v1) 4.0.12+90f2d7b14f
+			fabric-transitive-access-wideners-v1: Fabric Transitive Access Wideners (v1) 5.0.15+78d798af4f
+		fabricloader: Fabric Loader 0.15.11
+			mixinextras: MixinExtras 0.3.5
+		forgeconfigapiport: Forge Config API Port 20.4.3
+			com_electronwill_night-config_core: core 3.6.6
+			com_electronwill_night-config_toml: toml 3.6.6
+		goldenhopper: Golden Hopper 1.5.2
+		harvestwithease: Harvest with ease 8.0.1.0
+		healingbed: healingbed 1.20.1
+		iceberg: Iceberg 1.1.18
+		infwithmend: Infinity with Mending 1.0.2
+		java: OpenJDK 64-Bit Server VM 17
+		jei: Just Enough Items 17.3.1.3
+		justhammers: Just Hammers 84.0.0
+		merchantmarkers: Merchant Markers 1.3.2
+		minecraft: Minecraft 1.20.4
+		modmenu: Mod Menu 9.2.0
+			placeholder-api: Placeholder API 2.4.0-pre.1+1.20.4
+		newshieldvariants: NewShieldVariants 1.2.0
+		obsidian_glass_mod: obsidian_glass_mod 1.0.0
+		onlyexcavators: OnlyExcavators 1.20.4-0.1
+		reinfchest: Reinforced Chests 2.4.4+1.20
+			reinfcore: Reinforced Core 3.1.3+1.20
+		reinfshulker: Reinforced Shulker Boxes 2.5.2+1.20
+		resourceful_tools: Resourceful Tools 1.5.9
+		roughlyenoughitems: Roughly Enough Items 14.0.680
+			error_notifier: Error Notifier 1.0.9
+		roughlyenoughprofessions: Roughly Enough Professions 2.2.0
+		simple_backpack: SimpleBackpack 1.5.8
+		supermartijn642configlib: SuperMartijn642's Config Lib 1.1.8+a
+		tinymobfarm: Tiny Mob Farm 0.1-1.20.1
+		trinkets: Trinkets 3.8.1
+			cardinal-components-base: Cardinal Components API (base) 5.4.0
+			cardinal-components-entity: Cardinal Components API (entities) 5.4.0
+		trop: The Rings of Power 24.2.29
+		uilib: UI Lib 0.3.1
+		usefulslime: Useful Slime 1.9.0
+		wheelbarrow: Wheelbarrow 0.0.1
+		woodenshears: Wooden Shears 1.20.4-2.2.0.0
+		wsmlmb: what should my library mod be? 1.1.0+1.20.4
+		wurst: Wurst Client v7.43-MC1.20.4
+		xaerominimap: Xaero's Minimap 24.2.0
+	Launched Version: fabric-loader-0.15.11-1.20.4
+	Launcher name: minecraft-launcher
+	Backend library: LWJGL version 3.3.2-snapshot
+	Backend API: Unknown
+	Window size: <not initialized>
+	GL Caps: ERR
+	GL debug messages: <disabled>
+	Using VBOs: Yes
+	Is Modded: Definitely; Client brand changed to 'fabric'
+	Universe: 404
+	Type: Client (map_client.txt)
+	Locale: en_US
+	CPU: <unknown>
